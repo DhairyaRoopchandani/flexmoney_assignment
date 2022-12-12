@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        li {
+          float: left;
+        }
+        
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        li a:hover {
+          background-color: #111;
+        }
+        </style>
+        </head>
+    <body>
+        <ul>
+            <li><a class="active" href="/reg">New Registration</a></li>
+            <li><a class="active" href="/exist">Registered members</a></li>
+            <li><a class="active" href="/search">Search</a></li>
+            <li><a href="/drop">DropOut</a></li>
+            <li><a href="/pay">Proceed Payment</a></li>
+          </ul>
+          <center><h2>{{title}}</h2></center>
+    <table align="center" border=2>
+        <thead>
+            <tr>
+                <td>M.no</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Contact</td>
+                <td>Gender</td>
+                <td>Batch</td>
+                <td>Age</td>
+            </tr>
+        </thead>
+        {% for k in queryset %}
+        <tbody>
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{k.name}}</td>
+                <td>{{k.email}}</td>
+                <td>{{k.phone_no}}</td>
+                <td>{{k.gender}}</td>
+                <td>{{k.schedule_preference}}</td>
+                <td>{{k.age}}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</body>
+</html>
